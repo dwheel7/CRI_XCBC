@@ -4,9 +4,9 @@
     path: /etc/ssh/sshd_config
     marker: "# {mark} ANSIBLE added denygroup: {{ item.name }}"
     backup: yes
-    block: |
-      DenyGroups {{ item.name }}
+    block: | 
       Match Group {{ item.name }}
+      DenyGroups {{ item.name }}
         Banner /etc/ssh/{{ item.name }}-msg
         ForceCommand echo
         PasswordAuthentication no
